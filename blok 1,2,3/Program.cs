@@ -63,11 +63,15 @@ bool ElementArray(int[] array, int number)
     return false;
 }
 // Среднее арифметическое элеметов массива
-double Avg(int[] array)
-{
-    return SumArray(array) / array.Length;
-}
+// double Avg(int[] array)
+// {
+//     return SumArray(array) / array.Length;
+// }
 
+float Avg(int[] array) 
+{
+    return SumArray(array)/((float)array.Length);
+}
 // Подсчёт количества отрицательных элементов массива
 int NegativeElement(int[] array)
 {
