@@ -68,9 +68,9 @@ bool ElementArray(int[] array, int number)
 //     return SumArray(array) / array.Length;
 // }
 
-float Avg(int[] array) 
+float Avg(int[] array)
 {
-    return SumArray(array)/((float)array.Length);
+    return SumArray(array) / ((float)array.Length);
 }
 // Подсчёт количества отрицательных элементов массива
 int NegativeElement(int[] array)
@@ -146,16 +146,15 @@ int Factorial(int x)
 
 // 3. Функцию, которая вычисляет сумму цифр произвольного целого числа n
 
-void SumNumeral(int n)
+int SumNumeral(int n)
 {
-    int sum = 0;
+    int summa = 0;
     for (int i = 0; i < n; i++)
         if (n > 0)
-        {
-            sum += n % 10;
-            n /= 10;
-        }
-    Console.WriteLine(sum);
+            summa += n % 10;
+            n = n / 10;
+        
+     return summa;
 }
 
 
@@ -171,25 +170,19 @@ bool Polindrome(string num)
 }
 
 // 5. Функцию, складывающую два целых числа
-void SumNumbers(int a, int b)
+int SumNumbers(int a, int b)
 {
-    int number = 0;
-    if (a % 1 == 0 && b % 1 == 0) number = a + b;
-    Console.WriteLine(number);
+
+    return a + b;
 }
-Console.WriteLine("Введите число a: ");
-int a = int.Parse(Console.ReadLine() ?? "0");
-Console.WriteLine("Введите число b: ");
-int b = int.Parse(Console.ReadLine() ?? "0");
-Console.WriteLine($"Сумма чисел {a} и {b} равна: ");
-SumNumbers(a, b);
+
 
 // 6. Функцию, определяющую является ли число простым, то есть возвращающую true, если число простое, иначе - false
 
 bool Number(int com)
 {
     int i = 2;
-        if (com % i == 0) return true;
+    if (com % i == 0) return true;
 
     return false;
 }
@@ -291,10 +284,11 @@ int x = int.Parse(Console.ReadLine() ?? "0");
 int factorial = Factorial(x);
 Console.WriteLine($"Факториал числа {x} равен " + factorial);
 
+
+
 Random rand = new Random();
 int n = rand.Next(0, 1000);
-Console.WriteLine($"Сумма чисел в числе {n}");
-SumNumeral(n);
+Console.WriteLine($"Сумма чисел в числе {n} равна {SumNumeral(n)}");
 
 
 Console.Write("Введите число и узнаем, является ли оно полиндромом ");
@@ -303,12 +297,19 @@ string num = numberz.ToString();
 bool polindrom = Polindrome(num);
 Console.WriteLine(polindrom);
 
-Console.WriteLine("Введите число: ");
+Console.WriteLine("Введите число a: ");
+int a = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine("Введите число b: ");
+int b = int.Parse(Console.ReadLine() ?? "0");
+Console.WriteLine($"Сумма чисел {a} и {b} равна:{SumNumbers(a, b)} ");
+SumNumbers(a, b);
+
+Console.WriteLine("Введите число, чтобы проверить является оно простым или нет: ");
 int com = int.Parse(Console.ReadLine() ?? "0");
 Console.WriteLine("Число простое? ");
 bool numbera = Number(n);
 Console.WriteLine(numbera);
 
-Console.WriteLine("Введите число: ");
+Console.WriteLine("Введите число, чтобы проверить является оно четным или нет: ");
 int axa = int.Parse(Console.ReadLine() ?? "0");
 Console.WriteLine($"Число четное?  {EvenyNumber(axa)}");
